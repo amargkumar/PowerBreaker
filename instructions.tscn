@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqbrork7hrdyg"]
+
+[ext_resource type="Script" path="res://instructions.gd" id="1_ckmci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7sd0t"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kwfl"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbwwv"]
+font_size = 12
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ckmci")
+
+[node name="InstructionsCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InstructionsCamera"]
+
+[node name="Title" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 470.0
+offset_right = 563.0
+offset_bottom = 26.0
+scale = Vector2(2.72, 2.72)
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 97.0
+offset_top = 71.0
+offset_right = 190.0
+offset_bottom = 123.0
+scale = Vector2(2.72, 2.72)
+text = "Movement
+
+"
+horizontal_alignment = 1
+
+[node name="MovementBottom" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 43.0
+offset_top = 149.0
+offset_right = 175.0
+offset_bottom = 279.0
+scale = Vector2(2.72, 2.72)
+text = "Press the left 
+and right arrow
+keys to move the
+paddle left and
+right"
+label_settings = SubResource("LabelSettings_7sd0t")
+horizontal_alignment = 1
+
+[node name="Objective" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 360.0
+offset_top = 71.0
+offset_right = 530.0
+offset_bottom = 253.0
+scale = Vector2(2.72, 2.72)
+text = "Objective
+"
+horizontal_alignment = 1
+
+[node name="PowerUps" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 725.0
+offset_top = 71.0
+offset_right = 895.0
+offset_bottom = 253.0
+scale = Vector2(2.72, 2.72)
+text = "PowerUps"
+horizontal_alignment = 1
+
+[node name="PowerUpBottom" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 725.0
+offset_top = 149.0
+offset_right = 895.0
+offset_bottom = 331.0
+scale = Vector2(2.72, 2.72)
+text = "Every bricks has a 50%
+chance to drop
+cool powerups that
+can change the flow
+of the game."
+label_settings = SubResource("LabelSettings_4kwfl")
+horizontal_alignment = 1
+
+[node name="ObjectiveBottom" type="Label" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 360.0
+offset_top = 149.0
+offset_right = 530.0
+offset_bottom = 331.0
+scale = Vector2(2.72, 2.72)
+text = "Using the your paddle
+control your ball to
+break as many bricks
+as fast as possible
+within the shortest
+amount of time.
+You start off with 3
+balls that you can use
+to break bricks. "
+label_settings = SubResource("LabelSettings_pbwwv")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="InstructionsCamera/CanvasLayer"]
+offset_left = 1032.0
+offset_top = 566.0
+offset_right = 1077.0
+offset_bottom = 597.0
+scale = Vector2(2.2, 2.2)
+text = "Back"
+
+[connection signal="pressed" from="InstructionsCamera/CanvasLayer/Button" to="." method="_on_button_pressed"]

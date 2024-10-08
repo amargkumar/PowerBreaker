@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpwra63r562v"]
+
+[ext_resource type="Script" path="res://longerpaddle.gd" id="1_yw18f"]
+[ext_resource type="Texture2D" uid="uid://dwx4d6fxm8vl" path="res://Breakout Tile Set Mega Pack/PNG/315-Breakout-Tiles.png" id="2_8n24g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc01n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8n24g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkmmq"]
+radius = 65.0
+height = 486.0
+
+[node name="LongerPaddle" type="Area2D"]
+script = ExtResource("1_yw18f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wc01n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wkmmq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

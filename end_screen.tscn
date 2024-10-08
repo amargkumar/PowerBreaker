@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://rl4g4kyfk5pb"]
+
+[ext_resource type="Script" path="res://EndScreen.gd" id="1_d41w7"]
+[ext_resource type="Texture2D" uid="uid://cavs4i843t5l1" path="res://Breakout Tile Set Mega Pack/PNG/344-Breakout-Tiles.png" id="2_bb0jm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oktor"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_upwmq"]
+font_size = 64
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d41w7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_top = -5.0
+offset_right = 1152.0
+offset_bottom = 265.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_oktor")
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Time:"
+label_settings = SubResource("LabelSettings_upwmq")
+horizontal_alignment = 1
+
+[node name="oneStar" type="Sprite2D" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+position = Vector2(31, 379)
+texture = ExtResource("2_bb0jm")
+
+[node name="twoStar" type="Sprite2D" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+position = Vector2(155, 379)
+texture = ExtResource("2_bb0jm")
+
+[node name="threeStar" type="Sprite2D" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+position = Vector2(284, 379)
+texture = ExtResource("2_bb0jm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Next" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "Next Level"
+
+[node name="TryAgain" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "Try Again"
+
+[node name="Menu" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]

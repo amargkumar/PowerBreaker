@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://deew4cxw8n0ky"]
+
+[ext_resource type="Script" path="res://LevelScript.gd" id="1_47bjb"]
+[ext_resource type="Texture2D" uid="uid://bg0mvmhb207h5" path="res://Backgrounds/level 2 background.jpg" id="2_5i85c"]
+[ext_resource type="PackedScene" uid="uid://c6vtiaas14q6m" path="res://ball.tscn" id="2_f8eg0"]
+[ext_resource type="PackedScene" uid="uid://c1eqtl3pyn1g2" path="res://paddle.tscn" id="3_imjtb"]
+[ext_resource type="PackedScene" uid="uid://cwxhu0wbfjwdg" path="res://brick.tscn" id="4_fkvm6"]
+[ext_resource type="Texture2D" uid="uid://da40rc686umio" path="res://Breakout Tile Set Mega Pack/PNG/223-Breakout-Tiles.png" id="5_7luwy"]
+[ext_resource type="PackedScene" uid="uid://cx0th7sgfmxr" path="res://score_ui.tscn" id="6_svunf"]
+[ext_resource type="PackedScene" uid="uid://ckqoybhr3pgd4" path="res://removal_zone.tscn" id="7_tw0jo"]
+[ext_resource type="AudioStream" uid="uid://c6xije30o6h4x" path="res://Believe (Instrumental) - NEFFEX.mp3" id="8_b6eiu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2cqp"]
+texture = ExtResource("5_7luwy")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-68.5, -63, 63.5, -64, 63.5, 62, -62.5, 62)
+
+[sub_resource type="TileSet" id="TileSet_7nwjj"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_v2cqp")
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_47bjb")
+totalBricks = 20
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -443)
+scale = Vector2(9.81031, 9.81031)
+texture = ExtResource("2_5i85c")
+
+[node name="Ball" parent="." instance=ExtResource("2_f8eg0")]
+position = Vector2(-1, -5)
+mass = 0.01
+linear_velocity = Vector2(200, 2000)
+
+[node name="Paddle" parent="." instance=ExtResource("3_imjtb")]
+position = Vector2(-9, 433)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Brick" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-216, -966)
+
+[node name="Brick2" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(152, -965)
+
+[node name="Brick3" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(520, -964)
+
+[node name="Brick7" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(888, -963)
+
+[node name="Brick8" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(1256, -962)
+
+[node name="Brick9" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(1624, -961)
+
+[node name="Brick4" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-1320, -968)
+
+[node name="Brick10" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-1688, -968)
+
+[node name="Brick5" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-952, -967)
+
+[node name="Brick6" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-584, -966)
+
+[node name="Brick11" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-216, -1119)
+
+[node name="Brick12" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(152, -1118)
+
+[node name="Brick13" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(520, -1117)
+
+[node name="Brick14" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(888, -1116)
+
+[node name="Brick15" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(1256, -1115)
+
+[node name="Brick16" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(1624, -1114)
+
+[node name="Brick17" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-1320, -1121)
+
+[node name="Brick18" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-1688, -1121)
+
+[node name="Brick19" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-952, -1120)
+
+[node name="Brick20" parent="." instance=ExtResource("4_fkvm6")]
+position = Vector2(-584, -1119)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-220, 0)
+tile_set = SubResource("TileSet_7nwjj")
+format = 2
+layer_0/tile_data = PackedInt32Array(327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 393215, 0, 0, 393214, 0, 0, 393213, 0, 0, 393212, 0, 0, 393211, 0, 0, 393210, 0, 0, 393209, 0, 0, 393208, 0, 0, 393207, 0, 0, 393206, 0, 0, 393205, 0, 0, 393204, 0, 0, 393203, 0, 0, 393202, 0, 0, -720910, 0, 0, -720909, 0, 0, -720908, 0, 0, -720907, 0, 0, -720906, 0, 0, -720905, 0, 0, -720904, 0, 0, -720903, 0, 0, -720902, 0, 0, -720901, 0, 0, -720900, 0, 0, -720899, 0, 0, -720898, 0, 0, -720897, 0, 0, -786432, 0, 0, -786431, 0, 0, -786430, 0, 0, -786429, 0, 0, -786428, 0, 0, -786427, 0, 0, -786426, 0, 0, -786425, 0, 0, -786424, 0, 0, -786423, 0, 0, -786422, 0, 0, -786421, 0, 0, -786420, 0, 0, -786419, 0, 0, -786418, 0, 0, -786417, 0, 0, -786416, 0, 0, -655374, 0, 0, -589838, 0, 0, -524302, 0, 0, -458766, 0, 0, -393230, 0, 0, -327694, 0, 0, -262158, 0, 0, -196622, 0, 0, -131086, 0, 0, -65550, 0, 0, -14, 0, 0, 65522, 0, 0, 131058, 0, 0, 196594, 0, 0, 262130, 0, 0, 327666, 0, 0, -720880, 0, 0, -655344, 0, 0, -589808, 0, 0, -524272, 0, 0, -458736, 0, 0, -393200, 0, 0, -327664, 0, 0, -262128, 0, 0, -196592, 0, 0, -131056, 0, 0, -65520, 0, 0, 16, 0, 0, 65552, 0, 0, 131088, 0, 0, 196624, 0, 0, 262160, 0, 0)
+
+[node name="ScoreUI" parent="." instance=ExtResource("6_svunf")]
+
+[node name="RemovalZone" parent="." instance=ExtResource("7_tw0jo")]
+position = Vector2(0, 581)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b6eiu")
+volume_db = -7.598
+autoplay = true

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://48nukrsyxqj0"]
+
+[ext_resource type="Script" path="res://fire_ball.gd" id="1_lyr2l"]
+[ext_resource type="Texture2D" uid="uid://boxs2ksdq36hw" path="res://Breakout Tile Set Mega Pack/PNG/312-Breakout-Tiles.png" id="2_gkqx5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05cfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gkqx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkmmq"]
+radius = 65.0
+height = 486.0
+
+[node name="FireBall" type="Area2D"]
+script = ExtResource("1_lyr2l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_05cfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wkmmq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

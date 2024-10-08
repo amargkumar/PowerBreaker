@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6vtiaas14q6m"]
+
+[ext_resource type="Script" path="res://Ball.gd" id="1_02ua6"]
+[ext_resource type="Texture2D" uid="uid://bd88hnrgdhk5h" path="res://Breakout Tile Set Mega Pack/PNG/336-Breakout-Tiles.png" id="2_ffjkw"]
+[ext_resource type="Texture2D" uid="uid://tsn1a3rjugip" path="res://Breakout Tile Set Mega Pack/PNG/337-Breakout-Tiles.png" id="3_7ty8s"]
+[ext_resource type="Texture2D" uid="uid://blkqa5f30p17e" path="res://Breakout Tile Set Mega Pack/PNG/339-Breakout-Tiles.png" id="4_53iyj"]
+[ext_resource type="AudioStream" uid="uid://ddmr84w7csc5m" path="res://Explosion.mp3" id="5_5kax5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1e07v"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ovpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ffjkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ty8s")
+}],
+"loop": true,
+"name": &"Normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_53iyj")
+}],
+"loop": true,
+"name": &"OnFire",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jaop"]
+radius = 66.6108
+
+[node name="Ball" type="RigidBody2D"]
+position = Vector2(-1, 0)
+physics_material_override = SubResource("PhysicsMaterial_1e07v")
+gravity_scale = 0.0
+custom_integrator = true
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp_mode = 1
+script = ExtResource("1_02ua6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ovpj")
+animation = &"Normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5jaop")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5kax5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

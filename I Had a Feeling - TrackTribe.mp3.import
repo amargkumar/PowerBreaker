@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cw6en832r6ej7"
+path="res://.godot/imported/I Had a Feeling - TrackTribe.mp3-74d29809b31bd569a3352b8d85b444c0.mp3str"
+
+[deps]
+
+source_file="res://I Had a Feeling - TrackTribe.mp3"
+dest_files=["res://.godot/imported/I Had a Feeling - TrackTribe.mp3-74d29809b31bd569a3352b8d85b444c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

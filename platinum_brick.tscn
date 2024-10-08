@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6qddsbby45ue"]
+
+[ext_resource type="Script" path="res://platinum_brick.gd" id="1_x04gh"]
+[ext_resource type="Texture2D" uid="uid://dleds1amt5apn" path="res://Breakout Tile Set Mega Pack/PNG/191-Breakout-Tiles.png" id="2_pqpvf"]
+[ext_resource type="Texture2D" uid="uid://cjm1cokxkwoiv" path="res://Breakout Tile Set Mega Pack/PNG/198-Breakout-Tiles.png" id="3_onpii"]
+[ext_resource type="Texture2D" uid="uid://ddny0unsd7u7m" path="res://Breakout Tile Set Mega Pack/PNG/199-Breakout-Tiles.png" id="4_h18ri"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbif5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pqpvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_onpii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h18ri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydspj"]
+size = Vector2(363, 125)
+
+[node name="PlatinumBrick" type="StaticBody2D"]
+script = ExtResource("1_x04gh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hbif5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_ydspj")

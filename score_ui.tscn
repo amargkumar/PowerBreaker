@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx0th7sgfmxr"]
+
+[ext_resource type="Script" path="res://Score.gd" id="1_yfiq8"]
+[ext_resource type="Texture2D" uid="uid://bd88hnrgdhk5h" path="res://Breakout Tile Set Mega Pack/PNG/336-Breakout-Tiles.png" id="2_1pw8q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c67vf"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+outline_size = 6
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0t8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1pw8q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_c67vf")
+script = ExtResource("1_yfiq8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(16, 96)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_e0t8e")
+frame_progress = 0.154702
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(56, 96)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_e0t8e")
+frame_progress = 0.154702
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(96, 96)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_e0t8e")
+frame_progress = 0.154702
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(136, 96)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_e0t8e")
+frame_progress = 0.154702
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(176, 96)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_e0t8e")
+frame_progress = 0.154702
